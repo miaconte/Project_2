@@ -2,7 +2,7 @@ CREATE DATABASE wfynossiirgs4fio;
 USE wfynossiirgs4fio;
 
 CREATE TABLE activities (
-	id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	activity_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     event_name VARCHAR(50),
     event_city VARCHAR(50),
     event_link VARCHAR (150), 
@@ -13,7 +13,7 @@ CREATE TABLE activities (
 );
 
 CREATE TABLE users (
-  id Int(7) AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  user_id Int(7) AUTO_INCREMENT NOT NULL PRIMARY KEY,
   name VARCHAR( 255) NOT NULL,
   email VARCHAR( 255 ) NOT NULL,
   interests VARCHAR( 255 ) NOT NULL,
@@ -21,9 +21,14 @@ CREATE TABLE users (
 );
 
 CREATE TABLE interests (
-  id Int(7) AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  interest_id Int(7) AUTO_INCREMENT NOT NULL PRIMARY KEY,
   user_id INT(5) NOT NULL,
   user_interest varchar(300)
+);
+
+CREATE TABLE cities (
+  city_id  Int(7) AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  city VARCHAR (255) NOT NULL
 );
 
 
