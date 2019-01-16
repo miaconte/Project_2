@@ -1,109 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://fonts.googleapis.com/css?family=Staatliches" rel="stylesheet">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Social</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Staatliches" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <title>Social</title>
+</head>
+
+<body>
+    <style>
+        * {
+            box-sizing: border-box;
+            text-align: center;
+            font-family: 'Staatliches', cursive;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial;
+            font-family: 'Staatliches', cursive;
+            text-align: center;
+        }
+
+        .header {
+            text-align: center;
+            padding: 32px;
+        }
+
+        #grid {
+            width: 200px;
+            height: 120px;
+        }
+
+        .row {
+            text-align: center;
+            display: -ms-flexbox;
+            /* IE10 */
+            display: flex;
+            -ms-flex-wrap: wrap;
+            /* IE10 */
+            flex-wrap: wrap;
+            padding: 0 4px;
+            margin-left: 400px;
+        }
+
+        /* Create four equal columns that sits next to each other */
+        .column {
+            text-align: center;
+            -ms-flex: 25%;
+            /* IE10 */
+            flex: 25%;
+            max-width: 30%;
+            padding: 0 4px;
+        }
+
+        .column img {
+            text-align: center;
+            margin-top: 8px;
+            vertical-align: middle;
+        }
+
+        /* Responsive layout - makes a two column-layout instead of four columns */
+        @media screen and (max-width: 800px) {
+            .column {
+                -ms-flex: 50%;
+                flex: 50%;
+                max-width: 50%;
+            }
+        }
+
+        /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+            .column {
+                -ms-flex: 100%;
+                flex: 100%;
+                max-width: 100%;
+            }
+        }
+    </style>
 
     <body>
-        <style>
-            * {
-                box-sizing: border-box;
-                text-align: center;
-                font-family: 'Staatliches', cursive;
-            }
 
-            body {
-                margin: 0;
-                font-family: Arial;
-                font-family: 'Staatliches', cursive;
-                text-align: center;
-            }
-            
-            .header {
-                text-align: center;
-                padding: 32px;
-            }
-            
-            #grid {
-                width: 200px;
-                height: 120px;
-            }
-            
-            .row {
-                text-align: center;
-                display: -ms-flexbox;
-                /* IE10 */
-                display: flex;
-                -ms-flex-wrap: wrap;
-                /* IE10 */
-                flex-wrap: wrap;
-                padding: 0 4px;
-                margin-left: 400px;
-            }
-            
-            /* Create four equal columns that sits next to each other */
-            .column {
-                text-align: center;
-                -ms-flex: 25%;
-                /* IE10 */
-                flex: 25%;
-                max-width: 30%;
-                padding: 0 4px;
-            }
-            
-            .column img {
-                text-align: center;
-                margin-top: 8px;
-                vertical-align: middle;
-            }
+        <!-- Header -->
+        <div class="header">
+            <h3>Welcome to Social, find your city</h3>
+            <p>Resize the browser window to see the responsive effect.</p>
+        </div>
 
-            /* Responsive layout - makes a two column-layout instead of four columns */
-            @media screen and (max-width: 800px) {
-                .column {
-                    -ms-flex: 50%;
-                    flex: 50%;
-                    max-width: 50%;
-                }
-            }
-
-            /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-            @media screen and (max-width: 600px) {
-                .column {
-                    -ms-flex: 100%;
-                    flex: 100%;
-                    max-width: 100%;
-                }
-            }
-        </style>
-
-        <body>
-
-            <!-- Header -->
-            <div class="header">
-                <h3>Welcome to Social, find your city</h3>
-                <p>Resize the browser window to see the responsive effect.</p>
+        <!-- Photo Grid -->
+        <div class="row">
+            <div class="column" id="grid">
+                <img src="./img/chicago.jpg" id="chi" style="width:100%">
+                <img src="./img/losangeles.jpg" id="la" style="width:100%">
+                <img src="./img/nashville.jpg" id="nyc" style="width:100%">
+            </div>
+            <div class="column" id="grid">
+                <img src='https://media.architecturaldigest.com/photos/5699802bc6772b7614567435/4:3/w_768/new-york-city-guide.jpg'
+                    id="nashville" style="width:100%">
+                <img src="./img/pittsburgh.jpg" id="pittsburgh" style="width:100%">
+                <img src="./img/sandiego.jpg" id="seattle" style="width:100%">
             </div>
 
-            <!-- Photo Grid -->
-            <div class="row">
-                <div class="column" id="grid">
-                    <img src="./img/chicago.jpg" id ="chi" style="width:100%">
-                    <img src="./img/losangeles.jpg" id="la" style="width:100%">
-                    <img src="./img/nashville.jpg" id="nyc" style="width:100%">
-                </div>
-                <div class="column" id="grid">
-                    <img src='https://media.architecturaldigest.com/photos/5699802bc6772b7614567435/4:3/w_768/new-york-city-guide.jpg' id="nashville" style="width:100%">
-                    <img src="./img/pittsburgh.jpg" id="pittsburgh" style="width:100%">
-                    <img src="./img/sandiego.jpg" id="seattle" style="width:100%">
-            </div>
+    </body>
 
-        </body>
 </html>
-
