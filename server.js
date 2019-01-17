@@ -1,11 +1,13 @@
 // Dependencies
 
 var express = require("express");
+var session = require("express-sessions");
 var bodyParser = require("body-parser");
 var path = require("path");
-
+var userRoutes = require("./routes/user-routes");
 var app = express();
 
+app.use("/users", userRoutes);
 // Sets an initial port. We"ll use this later in our listener
 var PORT = process.env.PORT || 3007;
 
@@ -13,8 +15,13 @@ var PORT = process.env.PORT || 3007;
 // The code below is pretty standard.
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.text());
-app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+
+// app.use(session({
+//   secret: "", 
+//   resave: false,
+//   saveUninitialized: true,
+//   cookie: {secure: "auto"}
+// }));
 
 app.use('/static', express.static(path.join(__dirname, './public')))
 
