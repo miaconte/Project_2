@@ -1,6 +1,8 @@
 // Dependencies
 // =============================================================
 var path = require('path');
+var sequelize = require('sequelize');
+var mysql2 = require('mysql2');
 // Requiring our models
 var db = require("../models");
 
