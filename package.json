@@ -20,7 +20,9 @@
   "homepage": "https://github.com/miaconte/Project_2#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "bootstrap-select": "^1.13.5",
     "express": "^4.16.4",
+    "express-sessions": "^1.0.6",
     "mysql2": "^1.6.4",
     "passport": "^0.4.0",
     "passport-google-oauth": "^1.0.0",
