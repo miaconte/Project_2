@@ -2,6 +2,7 @@
 // =============================================================
 var path = require('path');
 // Requiring our models
+// var db = require("../models");
 var db = require("../models");
 
 // Routes

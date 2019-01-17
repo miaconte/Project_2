@@ -3,8 +3,7 @@ var app = express();
 var router = express.Router();
 
 // Import the model (social.js) to use its database functions.
-var social = require("../models/social.js");
-
+var social = require("../models");
 
 router.get("/", function(res){
     res.sendFile(path.join(__dirname, "../landing.html"));
