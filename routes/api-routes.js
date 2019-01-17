@@ -2,7 +2,6 @@
 // =============================================================
 var path = require('path');
 // Requiring our models
-// var db = require("../models");
 var db = require("../models");
 
 // Routes
@@ -21,7 +20,11 @@ module.exports = function(app) {
   // GET route for getting all of the activities/:city
   app.get("/api/activities/:city", function(req, res) {
     // findAll returns all entries for a table when used with no options
-    db.activities.findAll({}).then(function(dbActCities) {
+    db.activities.findAll({
+      where: {
+        event_city: req.params.city
+      }
+    }).then(function(dbActCities) {
       // We have access to the activities as an argument inside of the callback function
       res.json(dbActCities);
     });
@@ -30,7 +33,11 @@ module.exports = function(app) {
 
   app.get("/api/activities/:user", function(req, res) {
     // findAll returns all entries for a table when used with no options
-    db.activities.findAll({}).then(function(dbActUsers) {
+    db.activities.findAll({
+      where: {
+        user_id: req.params.user
+      }
+    }).then(function(dbActUsers) {
       // We have access to the activities as an argument inside of the callback function
       res.json(dbActUsers);
     });
@@ -52,23 +59,23 @@ module.exports = function(app) {
     });
   });
 
-  // GET route for getting all of the users
-  app.get("/api/users", function(req, res) {
-    // findAll returns all entries for a table when used with no options
-    db.users.findAll({}).then(function(dbUsers) {
-      // We have access to the users as an argument inside of the callback function
-      res.json(dbUsers);
-    });
-  });
+  // // GET route for getting all of the users
+  // app.get("/api/users", function(req, res) {
+  //   // findAll returns all entries for a table when used with no options
+  //   db.users.findAll({}).then(function(dbUsers) {
+  //     // We have access to the users as an argument inside of the callback function
+  //     res.json(dbUsers);
+  //   });
+  // });
 
-  // GET route for getting all of the users
-  app.get("/api/users/:user_id", function(req, res) {
-    // findAll returns all entries for a table when used with no options
-    db.users.findAll({}).then(function(dbUsers) {
-      // We have access to the users as an argument inside of the callback function
-      res.json(dbUsers);
-    });
-  });
+  // // GET route for getting all of the users
+  // app.get("/api/users/:user_id", function(req, res) {
+  //   // findAll returns all entries for a table when used with no options
+  //   db.users.findAll({}).then(function(dbUsers) {
+  //     // We have access to the users as an argument inside of the callback function
+  //     res.json(dbUsers);
+  //   });
+  // });
 
   // POST route for saving a new user
   app.post("/api/users", function(req, res) {
@@ -87,10 +94,12 @@ module.exports = function(app) {
   });
 
   // GET route for getting all of the posts
-  app.get("/api/posts/:post_id", function(req, res) {
+  app.get("/api/posts/:postid", function(req, res) {
     // findAll returns all entries for a table when used with no options
     db.activites.findAll({
-
+      where: {
+        post_id: req.params.postid
+      }
     }).then(function(dbPosts) {
       // We have access to the users as an argument inside of the callback function
       res.json(dbPosts);
@@ -98,7 +107,7 @@ module.exports = function(app) {
   });
 
   // PUT route for updating todos. We can get the updated post data from req.body
-  app.put("/api/posts/:post_id", function(req, res) {
+  app.put("/api/posts/:postid", function(req, res) {
     // Update takes in an object describing the properties we want to update, and
     // we use where to describe which objects we want to update
     db.activities.update({
@@ -108,7 +117,7 @@ module.exports = function(app) {
       event_category: req.body.category
     }, {
       where: {
-        post_id: req.body.post_id
+        post_id: req.params.postid
       }
     }).then(function(dbTodo) {
       res.json(dbTodo);
@@ -117,11 +126,11 @@ module.exports = function(app) {
 
   // DELETE route for deleting users. We can get the id of the post to be deleted from
   // req.params.id
-  app.delete("/api/posts/:post_id", function(req, res) {
+  app.delete("/api/posts/:postid", function(req, res) {
     // We just have to specify which todo we want to destroy with "where"
     db.activities.destroy({
       where: {
-        post_id: req.params.post_id
+        post_id: req.params.postid
       }
     }).then(function(dbTodo) {
       res.json(dbTodo);
