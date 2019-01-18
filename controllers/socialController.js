@@ -20,6 +20,12 @@ router.get("/activities", function (req, res) {
     });
 });
 
+router.put('/activities/:city', function(req, res) {
+    var city = req.params.city;
+
+    console.log("City: " + city);
+    });
+
 router.put("/api/activities/:id", function(req, res) {
     var condition = "id = " + req.params.id;
   
