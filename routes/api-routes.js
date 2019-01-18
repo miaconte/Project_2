@@ -33,7 +33,7 @@ module.exports = function(app) {
     });
   });
 
-
+  // GET route for getting all of the activities/:user
   app.get("/api/activities/:user", function(req, res) {
     // findAll returns all entries for a table when used with no options
     db.activities.findAll({
@@ -125,21 +125,20 @@ module.exports = function(app) {
       where: {
         post_id: req.params.postid
       }
-    }).then(function(dbTodo) {
-      res.json(dbTodo);
+    }).then(function(dbPosts) {
+      res.json(dbPosts);
     });
   });
 
-  // DELETE route for deleting users. We can get the id of the post to be deleted from
-  // req.params.id
+  // DELETE route for deleting post by id. We can get the id of the post to be deleted from
   app.delete("/api/posts/:postid", function(req, res) {
     // We just have to specify which todo we want to destroy with "where"
     db.activities.destroy({
       where: {
         post_id: req.params.postid
       }
-    }).then(function(dbTodo) {
-      res.json(dbTodo);
+    }).then(function(dbPosts) {
+      res.json(dbPosts);
     });
 
   });
