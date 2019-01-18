@@ -3,11 +3,18 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var path = require("path");
+var exphbs  = require('express-handlebars');
+
 var app = express();
 var db = require("./models");
 
 // Sets an initial port. We"ll use this later in our listener
 var PORT = process.env.PORT || 3007;
+
+
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.set('view engine', 'handlebars'); 
+
 
 // BodyParser makes it possible for our server to interpret data sent to it.
 // The code below is pretty standard.

@@ -28,6 +28,7 @@ module.exports = function(app) {
         event_city: req.params.city
       }
     }).then(function(dbActCities) {
+      console.log(dbActCities);
       // We have access to the activities as an argument inside of the callback function
       res.json(dbActCities);
     });
