@@ -14,6 +14,7 @@ module.exports = function(app) {
   app.get("/api/activities", function(req, res) {
     // findAll returns all entries for a table when used with no options
     db.activities.findAll({}).then(function(dbActivities) {
+      console.log(dbActivities)
       // We have access to the activities as an argument inside of the callback function
       res.json(dbActivities);
     });
@@ -50,11 +51,13 @@ module.exports = function(app) {
     // create takes an argument of an object describing the item we want to
     // insert into our table. In this case we just we pass in an object with a text
     // and complete property
+    console.log(req.body);
     db.activities.create({
-      event_name: req.body.name,
-      event_city: req.body.city,
-      event_link: req.body.link,
-      event_category: req.body.category
+      event_name: req.body.event_name,
+      event_city: req.body.event_city,
+      event_link: req.body.event_link,
+      event_category: req.body.event_category,
+      post_id: req.body.post_id
     }).then(function(dbactivities) {
       // We have access to the new activities as an argument inside of the callback function
       res.json(dbactivities);
@@ -84,11 +87,12 @@ module.exports = function(app) {
     // create takes an argument of an object describing the item we want to
     // insert into our table. In this case we just we pass in an object with a text
     // and complete property
-    db.users.create({
+    db.user.create({
       name: req.body.name,
       email: req.body.email,
+      user_id: req.body.user_id,
       interests: req.body.interests,
-      event_city: req.body.city
+      event_city: req.body.event_city
     }).then(function(dbusers) {
       // We have access to the new users as an argument inside of the callback function
       res.json(dbusers);
@@ -113,10 +117,10 @@ module.exports = function(app) {
     // Update takes in an object describing the properties we want to update, and
     // we use where to describe which objects we want to update
     db.activities.update({
-      event_name: req.body.name,
-      event_city: req.body.city,
-      event_link: req.body.link,
-      event_category: req.body.category
+      event_name: req.body.event_name,
+      event_city: req.body.event_city,
+      event_link: req.body.event_link,
+      event_category: req.body.event_category
     }, {
       where: {
         post_id: req.params.postid
@@ -136,6 +140,66 @@ module.exports = function(app) {
       }
     }).then(function(dbTodo) {
       res.json(dbTodo);
+    });
+
+  });
+
+  // =======
+
+  // POST route for saving a new user
+  app.post("/api/interests", function(req, res) {
+    // create takes an argument of an object describing the item we want to
+    // insert into our table. In this case we just we pass in an object with a text
+    // and complete property
+    db.interest.create({
+      user_id: req.body.user_id,
+      user_interest: req.body.user_interest,
+      interest_id: req.body.interest_id
+    }).then(function(dbInterest) {
+      // We have access to the new users as an argument inside of the callback function
+      res.json(dbInterest);
+    });
+  });
+
+  // GET route for getting all of the posts
+  app.get("/api/interests/:user_id", function(req, res) {
+    // findAll returns all entries for a table when used with no options
+    db.activites.findAll({
+      where: {
+        user_id: req.params.user_id
+      }
+    }).then(function(dbInterest) {
+      // We have access to the users as an argument inside of the callback function
+      res.json(dbInterest);
+    });
+  });
+
+  // PUT route for updating todos. We can get the updated post data from req.body
+  app.put("/api/interests/:user_id", function(req, res) {
+    // Update takes in an object describing the properties we want to update, and
+    // we use where to describe which objects we want to update
+    db.interest.update({
+      user_id: req.body.user_id,
+      user_interest: req.body.user_interest,
+    }, {
+      where: {
+        user_id: req.params.user_id
+      }
+    }).then(function(dbInterest) {
+      res.json(dbInterest);
+    });
+  });
+
+  // DELETE route for deleting users. We can get the id of the post to be deleted from
+  // req.params.id
+  app.delete("/api/interest/:user_id/:interest_id", function(req, res) {
+    // We just have to specify which todo we want to destroy with "where"
+    db.activities.destroy({
+      where: {
+        user_id: req.params.user_id
+      }
+    }).then(function(dbInterest) {
+      res.json(dbInterest);
     });
 
   });

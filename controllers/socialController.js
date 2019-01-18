@@ -27,7 +27,7 @@ router.put('/activities/:city', function(req, res) {
     });
 
 router.put("/api/activities/:id", function(req, res) {
-    var condition = "id = " + req.params.id;
+    var condition = "post_id = " + req.params.id;
   
     console.log("condition", condition);
 });

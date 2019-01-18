@@ -3,8 +3,8 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var path = require("path");
-
 var app = express();
+var db = require("./models");
 
 // Sets an initial port. We"ll use this later in our listener
 var PORT = process.env.PORT || 3007;
@@ -28,6 +28,10 @@ app.get("/", function(req, res) {
 // app.get("/survey", function(req, res) {
 //   res.sendFile(path.join(__dirname, "../public/survey.html"));
 // });
+
+db.sequelize.sync().then(function() {
+  console.log("db synced...");
+});
 
 app.listen(PORT, function() {
   console.log("App listening on http://localhost:" + PORT);
