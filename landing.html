@@ -108,8 +108,7 @@
             $(".city").click(function () {
                 var id = $(this).attr("id");
                 sessionStorage.setItem("id", id);
-                window.location = "/activities";
-                console.log(id);
+                window.location = `/activities/${id}`;
             });
             </script>
     </body>

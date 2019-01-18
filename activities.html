@@ -130,17 +130,7 @@
 
         <script>
 
-            var city = sessionStorage.getItem("id");
-            console.log(city);
-                $.get("/activities/" + city, (data) => {
-                    add.then((res) => {
-                        connection.query("SELECT * FROM activities WHERE event_city = vegas", function (err,
-                            result, fields) {
-                            if (err) throw err;
-                            console.log(result);
-                        });
-                    });
-                })
+
         </script>
 </body>
 
