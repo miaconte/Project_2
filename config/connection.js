@@ -9,6 +9,20 @@ var connection = mysql.createConnection({
   database: "wfynossiirgs4fio"
 });
 
+var Sequelize = require('sequelize');
+
+var sequelize = new Sequelize('randomdb', 'root', 'root', {
+    host: 'localhost',
+    dialect: 'mysql',
+    port : 3306,
+
+    pool: {
+        max: 5,
+        min: 0,
+        idle: 10000
+    }
+});
+
 // Make connection.
 connection.connect(function(err) {
   if (err) {
@@ -18,5 +32,6 @@ connection.connect(function(err) {
   console.log("connected as id " + connection.threadId);
 });
 
-// Export connection for our ORM to use.
+exports.sequelize = sequelize;
+module.exports = Sequelize;
 module.exports = connection;
