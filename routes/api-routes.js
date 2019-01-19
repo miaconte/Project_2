@@ -47,7 +47,7 @@ module.exports = function(app) {
     });
   });
 
-  // POST route for saving a new activities
+  // POST route for saving a new activity
   app.post("/api/activities", function(req, res) {
     // create takes an argument of an object describing the item we want to
     // insert into our table. In this case we just we pass in an object with a text

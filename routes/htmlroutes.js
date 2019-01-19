@@ -13,6 +13,13 @@ module.exports = function(app) {
         res.render("activities", hbsObject);
     });
 
+    // will display new post page when / is visited.
+    app.get("/newpost", function(req, res){
+        var newPost = req.params.event_name;
+        const hbsObject  = {newPost};
+        res.render("posts", hbsObject);
+    });
+
     // default catches undefined routes and send user to home page. 
     app.get("*", function(req, res) {
         res.sendFile(path.join(__dirname, '../landing.html'));

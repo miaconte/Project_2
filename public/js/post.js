@@ -1,25 +1,60 @@
-app.post("/api/post", function(req, res) {
-    // Note the code here. Our "server" will respond to requests and let users know if they have a post or not.
-    // It will do this by sending out the value "true" have a post
-    // req.body is available since we're using the body parsing middleware
-    if (postData.length < 5) {
-      postData.push(req.body);
-      res.json(true);
-    }
-    else {
-      waitListData.push(req.body);
-      res.json(false);
-    }
+// Make sure we wait to attach our handlers until the DOM is fully loaded.
+$(function() {
+  $(".change-sleep").on("click", function(event) {
+    var id = $(this).data("id");
+    var newSleep = $(this).data("newsleep");
+
+    var newSleepState = {
+      sleepy: newSleep
+    };
+
+    // Send the PUT request.
+    $.ajax("/api/cats/" + id, {
+      type: "PUT",
+      data: newSleepState
+    }).then(
+      function() {
+        console.log("changed sleep to", newSleep);
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
   });
 
-  // ---------------------------------------------------------------------------
-  // I added this below code so you could clear out the post while working with the functionality.
-  // Don"t worry about it!
+  $(".create-form").on("submit", function(event) {
+    // Make sure to preventDefault on a submit event.
+    event.preventDefault();
 
-  app.post("/api/clear", function(req, res) {
-    // Empty out the arrays of data
-    postData.length = [];
-    waitListData.length = [];
+    var newCat = {
+      name: $("#ca").val().trim(),
+      sleepy: $("[name=sleepy]:checked").val().trim()
+    };
 
-    res.json({ ok: true });
+    // Send the POST request.
+    $.ajax("/api/cats", {
+      type: "POST",
+      data: newCat
+    }).then(
+      function() {
+        console.log("created new cat");
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
   });
+
+  $(".delete-cat").on("click", function(event) {
+    var id = $(this).data("id");
+
+    // Send the DELETE request.
+    $.ajax("/api/cats/" + id, {
+      type: "DELETE"
+    }).then(
+      function() {
+        console.log("deleted cat", id);
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });
+});
