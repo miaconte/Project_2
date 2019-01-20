@@ -20,6 +20,13 @@ module.exports = function(app) {
         res.render("posts", hbsObject);
     });
 
+    // will display update post page when / is visited.
+    app.get("/update", function(req, res){
+        var updatePost = req.params.event_name;
+        const hbsObject  = {updatePost};
+        res.render("update", hbsObject);
+    });
+
     // default catches undefined routes and send user to home page. 
     app.get("*", function(req, res) {
         res.sendFile(path.join(__dirname, '../landing.html'));

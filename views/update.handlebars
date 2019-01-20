@@ -1,14 +1,20 @@
 
         <div class="header">
-            <h3>Social - add a new post!</h3>
+            <h3>Social - update an existing post!</h3>
         </div>
 
-<h2>Add Activity</h2>
+<h2>Update Activity</h2>
+<h5>Please fill in all fields - even if the information hasn't changed.</h5>
 <form class="create-form">
 
-  <div class="form-group">
+    <div class="form-group">
     <label for="event_name">Activity Name:</label>
     <input type="text" id="event_name" name="event_name">
+  </div>
+
+  <div class="form-group">
+    <label for="post_id">Post ID:</label>
+    <input type="text" id="post_id" name="post_id">
   </div>
 
   <div class="form-group">
@@ -16,7 +22,7 @@
     <input type="url" id="actLink" name="url">
   </div>
 
-<div class="dropdown">
+  <div class="dropdown">
   <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButtonCity" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Choose City
   </button>
@@ -29,11 +35,12 @@
   </div>
 </div>
 <br>
+
 <div class="dropdown">
   <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Choose Category
   </button>
-  <div class="dropdown-menu cyan" aria-labelledby="dropdownMenuButton">
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
     <a class="dropdown-item" href="#">Music/Festivals</a>
     <a class="dropdown-item" href="#">Shopping</a>
     <a class="dropdown-item" href="#">Resturants/Date Night</a>
@@ -41,7 +48,7 @@
   </div>
 </div>
 <br>
-  <button class="btn btn-outline-secondary btn-large" id="postAct" type="submit">Post New Activity</button>
-      <button src="/" class="btn btn-outline-danger btn-large" id="cancelAct" type="submit">Cancel</button>
+  <button class="btn btn-outline-secondary btn-large" id="updateAct" type="submit">Update Activity</button>
+    <button class="btn btn-outline-danger btn-large" id="deleteAct" type="submit">Delete Activity</button>
 
 </form>
