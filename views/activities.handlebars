@@ -1,5 +1,6 @@
 <body>
     <h1>{{city}}</h1>
+    <h2>{{activity}}</h2>
     {{#each activites}}{{/each}}
 
     <div class="header">
@@ -83,7 +84,6 @@
     $.get("/api/activities/" + city).then((res) => {
             console.log(res);
         });
-
 </script>
 
 </html>

@@ -25,7 +25,7 @@ module.exports = function(app) {
     // findAll returns all entries for a table when used with no options
     db.activities.findAll({
       where: {
-        event_city: req.params.city
+        event_name: "Concert"
       }
     }).then(function(dbActCities) {
       console.log(dbActCities);
