@@ -1,6 +1,6 @@
-CREATE DATABASE wfynossiirgs4fio;
+CREATE DATABASE n24o4wt1w8vmdonb;
 
-USE wfynossiirgs4fio;
+USE n24o4wt1w8vmdonb;
 
 CREATE TABLE activities (
 	activity_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
