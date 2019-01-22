@@ -6,7 +6,7 @@ module.exports = function (sequelize, DataTypes) {
         event_city: DataTypes.STRING,
         event_link: {type: Sequelize.STRING},
         event_category: DataTypes.STRING,
-        post_id: {type: Sequelize.INTEGER, primaryKey: true }
+        // post_id: {type: Sequelize.INTEGER, primaryKey: true }
     });
 };
 
