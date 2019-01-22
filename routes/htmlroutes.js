@@ -23,6 +23,20 @@ module.exports = function (app) {
     // City has a value via params and activity has no value 
     
 
+    // will display new post page when / is visited.
+    app.get("/newpost", function(req, res){
+        var newPost = req.params.event_name;
+        const hbsObject  = {newPost};
+        res.render("posts", hbsObject);
+    });
+
+    // will display update post page when / is visited.
+    app.get("/update", function(req, res){
+        var updatePost = req.params.event_name;
+        const hbsObject  = {updatePost};
+        res.render("update", hbsObject);
+    });
+
     // GET route for getting all of the activities/:city
     app.get("/api/activities/:city", function (req, res) {
         // findAll returns all entries for a table when used with no options
