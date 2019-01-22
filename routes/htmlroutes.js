@@ -13,6 +13,7 @@ module.exports = function (app) {
         const hbsObject = {city, activity};
         res.render("activities", hbsObject);
     });
+
     
     // will display new post page when / is visited.
     app.get("/newpost", function(req, res){
@@ -20,6 +21,10 @@ module.exports = function (app) {
         const hbsObject  = {newPost};
         res.render("posts", hbsObject);
     });
+
+    // app.get("/confirmation", function (req, res) {
+    //     res.sendFile(path.join(__dirname, "../views/postconfirm.handlebars"));
+    // })
 
     // will display update post page when / is visited.
     app.get("/update", function(req, res){

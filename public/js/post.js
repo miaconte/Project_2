@@ -17,12 +17,15 @@ $(function() {
     $.ajax("/api/activities", {
       type: "POST",
       data: JSON.stringify(newPost),
-      contentType: "application/json"
+      contentType: "application/json",
     }).then(
-      function() {
+      function(data) {
+        console.log(data);
+        alert("Your post was successly added! Your post id # is " + data.id)
         console.log("created new activity");
         // Reload the page to get the updated list
-        location.reload();
+        window.location.href = "/";
+       
       }
     );
   });

@@ -72,10 +72,7 @@ module.exports = function(app) {
     // and complete property
     db.user.create({
       name: req.body.name,
-      email: req.body.email,
-      user_id: req.body.user_id,
-      interests: req.body.interests,
-      event_city: req.body.city
+      email: req.body.email
     }).then(function(dbusers) {
       // We have access to the new users as an argument inside of the callback function
       res.json(dbusers);
@@ -112,6 +109,40 @@ module.exports = function(app) {
       }
     }).then(function(dbPosts) {
       res.json(dbPosts);
+    });
+  });
+
+  // PUT route for updating todos. We can get the updated post data from req.body
+  app.put("/api/posts/:postid", function(req, res) {
+    // Update takes in an object describing the properties we want to update, and
+    // we use where to describe which objects we want to update
+    db.activities.update({
+      event_name: req.body.eventName,
+      event_city: req.body.city,
+      event_link: req.body.link,
+      event_category: req.body.category,
+      post_id: req.body.post_id
+    }, {
+      where: {
+        post_id: req.params.postid
+      }
+    }).then(function(dbPosts) {
+      res.json(dbPosts);
+    });
+  });
+
+  // POST route for saving a new user
+  app.post("/api/newpost", function(req, res) {
+    // create takes an argument of an object describing the item we want to
+    // insert into our table. In this case we just we pass in an object with a text
+    // and complete property
+    db.user.create({
+      name: req.body.name,
+      email: req.body.email
+    }).then(function(dbusers) {
+      // We have access to the new users as an argument inside of the callback function
+      res.json(dbusers);
+      console.log(db.user);
     });
   });
 
