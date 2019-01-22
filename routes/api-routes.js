@@ -55,34 +55,15 @@ module.exports = function(app) {
     // and complete property
     console.log(req.body);
     db.activities.create({
-      event_name: req.body.event_name,
-      event_city: req.body.event_city,
-      event_link: req.body.event_link,
-      event_category: req.body.event_category,
-      post_id: req.body.post_id
+      event_name: req.body.eventName,
+      event_city: req.body.city,
+      event_link: req.body.link,
+      event_category: req.body.category
     }).then(function(dbactivities) {
       // We have access to the new activities as an argument inside of the callback function
       res.json(dbactivities);
     });
   });
-
-  // // GET route for getting all of the users
-  // app.get("/api/users", function(req, res) {
-  //   // findAll returns all entries for a table when used with no options
-  //   db.users.findAll({}).then(function(dbUsers) {
-  //     // We have access to the users as an argument inside of the callback function
-  //     res.json(dbUsers);
-  //   });
-  // });
-
-  // // GET route for getting all of the users
-  // app.get("/api/users/:user_id", function(req, res) {
-  //   // findAll returns all entries for a table when used with no options
-  //   db.users.findAll({}).then(function(dbUsers) {
-  //     // We have access to the users as an argument inside of the callback function
-  //     res.json(dbUsers);
-  //   });
-  // });
 
   // POST route for saving a new user
   app.post("/api/users", function(req, res) {
@@ -94,10 +75,11 @@ module.exports = function(app) {
       email: req.body.email,
       user_id: req.body.user_id,
       interests: req.body.interests,
-      event_city: req.body.event_city
+      event_city: req.body.city
     }).then(function(dbusers) {
       // We have access to the new users as an argument inside of the callback function
       res.json(dbusers);
+      console.log(db.user);
     });
   });
 
@@ -119,10 +101,11 @@ module.exports = function(app) {
     // Update takes in an object describing the properties we want to update, and
     // we use where to describe which objects we want to update
     db.activities.update({
-      event_name: req.body.event_name,
-      event_city: req.body.event_city,
-      event_link: req.body.event_link,
-      event_category: req.body.event_category
+      event_name: req.body.eventName,
+      event_city: req.body.city,
+      event_link: req.body.link,
+      event_category: req.body.category,
+      post_id: req.body.post_id
     }, {
       where: {
         post_id: req.params.postid

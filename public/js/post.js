@@ -14,7 +14,7 @@ $(function() {
     };
     console.log(newPost);
     // Send the POST request.
-    $.ajax("/api/newpost", {
+    $.ajax("/api/activities", {
       type: "POST",
       data: JSON.stringify(newPost),
       contentType: "application/json"
