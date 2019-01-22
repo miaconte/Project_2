@@ -1,34 +1,45 @@
 var path = require("path");
 
-module.exports = function(app) {
+module.exports = function (app) {
 
-    app.get("/activities", function(req, res){
+    app.get("/activities", function (req, res) {
         res.sendFile(path.join(__dirname, "../activities.html"));
     })
 
-    // will display survey page when /survey is visited.
-    app.get("/activities/:city", function(req, res){
+    // Captures city name via handlebars
+    app.get("/activities/:city", function (req, res) {
         var city = req.params.city;
-        const hbsObject  = {city};
+        const hbsObject = {city};
         res.render("activities", hbsObject);
     });
 
-    // will display new post page when / is visited.
-    app.get("/newpost", function(req, res){
-        var newPost = req.params.event_name;
-        const hbsObject  = {newPost};
-        res.render("posts", hbsObject);
+    // Creating a Handlebars object 
+    app.get("/activities/:city", function (req, res) {
+        var activity = req.body.event_name;
+        const hbsObject = {activity};
+        res.render("activities", hbsObject);
     });
 
-    // will display update post page when / is visited.
-    app.get("/update", function(req, res){
-        var updatePost = req.params.event_name;
-        const hbsObject  = {updatePost};
-        res.render("update", hbsObject);
+    // City has a value via params and activity has no value 
+    
+
+    // GET route for getting all of the activities/:city
+    app.get("/api/activities/:city", function (req, res) {
+        // findAll returns all entries for a table when used with no options
+        db.activities.findAll({
+            where: {
+                event_city: req.params.city,
+                post_id: req.body.post_id
+            }
+        }).then(function (dbActCities) {
+            console.log(dbActCities);
+            // We have access to the activities as an argument inside of the callback function
+            res.json(dbActCities);
+        });
     });
 
     // default catches undefined routes and send user to home page. 
-    app.get("*", function(req, res) {
+    app.get("*", function (req, res) {
         res.sendFile(path.join(__dirname, '../landing.html'));
     });
 };
