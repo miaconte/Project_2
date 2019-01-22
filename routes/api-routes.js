@@ -22,10 +22,11 @@ module.exports = function(app) {
 
   // GET route for getting all of the activities/:city
   app.get("/api/activities/:city", function(req, res) {
+    console.log(req.params);
     // findAll returns all entries for a table when used with no options
     db.activities.findAll({
       where: {
-        event_name: "Concert"
+        event_city: req.params.city
       }
     }).then(function(dbActCities) {
       console.log(dbActCities);

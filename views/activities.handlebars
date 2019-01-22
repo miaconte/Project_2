@@ -82,8 +82,12 @@
 <script>
     var city = sessionStorage.getItem("id");
     $.get("/api/activities/" + city).then((res) => {
+            console.log(city);
             console.log(res);
+
         });
+
+
 </script>
 
 </html>
