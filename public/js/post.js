@@ -14,9 +14,10 @@ $(function() {
     };
     console.log(newPost);
     // Send the POST request.
-    $.ajax("/api/posts", {
+    $.ajax("/api/newpost", {
       type: "POST",
-      data: newPost
+      data: JSON.stringify(newPost),
+      contentType: "application/json"
     }).then(
       function() {
         console.log("created new activity");
@@ -26,20 +27,6 @@ $(function() {
     );
   });
 
-  // $(".deleteAct").on("submit", function(event) {
-  //   event.preventDefault();
-  //   var id = $(".post_id").val().trim()
-  //   console.log(id);
-
-  //   // Send the DELETE request.
-  //   $.ajax("/api/posts/" + id, {
-  //     type: "DELETE"
-  //   }).then(
-  //     function() {
-  //       console.log("deleted post", id);
-  //       // Reload the page to get the updated list
-  //       location.reload();
       }
     );
-//   });
-// });
+
