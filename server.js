@@ -29,12 +29,8 @@ require("./routes/api-routes")(app);
 require("./routes/htmlroutes")(app);
 
 app.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname, "./main.html"));
+  res.sendFile(path.join(__dirname, "./landing.html"));
 });
-
-// app.get("/survey", function(req, res) {
-//   res.sendFile(path.join(__dirname, "../public/survey.html"));
-// });
 
 db.sequelize.sync().then(function() {
   console.log("db synced...");
