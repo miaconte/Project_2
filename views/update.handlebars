@@ -6,50 +6,29 @@
 <h2>Update Activity</h2>
 <h5>Please fill in all fields - even if the information hasn't changed.</h5>
 <form class="create-form">
-
-    <div class="form-group">
+  <div class="form-group">
+    <label for="post_id">Original Post ID#:</label>
+    <input type="text" id="post_id" name="post_id">
+  </div>
+<br>
+  <div class="form-group">
     <label for="event_name">Activity Name:</label>
     <input type="text" id="event_name" name="event_name">
   </div>
-
-  <div class="form-group">
-    <label for="post_id">Post ID:</label>
-    <input type="text" id="post_id" name="post_id">
-  </div>
-
   <div class="form-group">
     <label for="actLink">Activity Link:</label>
     <input type="url" id="actLink" name="url">
   </div>
-
-  <div class="dropdown">
-  <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButtonCity" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Choose City
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" id="losangeles" href="#">LA</a>
-    <a class="dropdown-item" id="nyc" href="#">NYC</a>
-    <a class="dropdown-item" id="portland" href="#">Portland</a>
-    <a class="dropdown-item" id="colorado" href="#">Colorado</a>
-    <a class="dropdown-item" id="vegas" href="#">Vegas</a>
-    <a class="dropdown-item" id="seattle" href="#">Seattle</a>
+<div class="form-group">
+    <label for="event_city">Activity City:</label>
+    <input type="text" id="event_city" name="event_city">
   </div>
-</div>
-<br />
-
-<div class="dropdown">
-  <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Choose Category
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#">Music/Festivals</a>
-    <a class="dropdown-item" href="#">Shopping</a>
-    <a class="dropdown-item" href="#">Resturants/Date Night</a>
-    <a class="dropdown-item" href="#">Outdoor/Nature</a>
-  </div>
-</div>
 <br>
-  <button class="btn btn-outline-secondary btn-large" id="updateAct" type="submit">Update Activity</button>
-    <button class="btn btn-outline-danger btn-large" id="deleteAct" type="submit">Delete Activity</button>
-
+<div class="form-group">
+    <label for="event_category">Activity Category:</label>
+    <input type="text" id="event_category" name="event_category">
+  </div>
+<br>
+  <button class="btn btn-outline-secondary btn-large" id="postAct" type="submit">Post New Activity</button>
+      <button src="/" class="btn btn-outline-danger btn-large" id="cancelAct" type="submit">Cancel</button>
 </form>
