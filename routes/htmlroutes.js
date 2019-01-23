@@ -9,11 +9,10 @@ module.exports = function (app) {
     // Captures city name via handlebars
     app.get("/activities/:city", function (req, res) {
         var city = req.params.city;
-        var activity = req.params.city; // Testing rendering
-        const hbsObject = {city, activity};
+        const hbsObject = {city};
         res.render("activities", hbsObject);
-    });
-    
+    });    
+
     // will display new post page when / is visited.
     app.get("/newpost", function(req, res){
         var newPost = req.params.event_name;

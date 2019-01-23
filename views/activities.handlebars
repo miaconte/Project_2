@@ -1,11 +1,15 @@
 <body>
-    <h1>{{city}}</h1>
-    <h2>{{activity}}</h2>
-    {{#each activites}}{{/each}}
-
     <div class="header">
-        <h3>Welcome to Social, choose your activity!</h3>
+        <h3>Welcome to Social, here's a list of activities!</h3>
     </div>
+
+    {{#each activities}}
+    <div id="e-name"><h2>{{event_name}}</h2></div>
+        <h5>Event City: {{event_city}}</h5>
+        <h5>Event Link: {{event_link}}</h5>
+        <h5>Event Category: {{event_category}}</h5>
+        <br><br>
+    {{/each}}
 
     {{!-- CSS --}}
     <style>
@@ -20,6 +24,7 @@
             font-family: Arial;
             font-family: 'Staatliches', cursive;
             text-align: center;
+            background-image: url("https://backgroundcheckall.com/wp-content/uploads/2017/12/light-grey-gradient-background-5.jpg");
         }
 
         .header {
@@ -30,6 +35,10 @@
         #grid {
             width: 200px;
             height: 120px;
+        }
+
+        #e-name{
+            display:inline-block;
         }
 
         .row {
@@ -78,16 +87,9 @@
             }
         }
     </style>
+    <script>
+        var city = sessionStorage.getItem("id");
+    </script>
 </body>
-<script>
-    var city = sessionStorage.getItem("id");
-    $.get("/api/activities/" + city).then((res) => {
-            console.log(city);
-            console.log(res);
-
-        });
-
-
-</script>
 
 </html>

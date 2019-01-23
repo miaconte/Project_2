@@ -20,18 +20,16 @@ module.exports = function(app) {
     });
   });
 
-  // GET route for getting all of the activities/:city
-  app.get("/api/activities/:city", function(req, res) {
+ app.get("/activities/:city", function(req, res) {
     console.log(req.params);
     // findAll returns all entries for a table when used with no options
     db.activities.findAll({
       where: {
         event_city: req.params.city
       }
-    }).then(function(dbActCities) {
-      console.log(dbActCities);
-      // We have access to the activities as an argument inside of the callback function
-      res.json(dbActCities);
+    }).then(function(activities) {
+      console.log(activities);
+      res.render('activities', { activities });
     });
   });
 
