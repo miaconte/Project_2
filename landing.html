@@ -12,6 +12,7 @@
     <title>Social</title>
 </head>
     <style>
+
         * {
             box-sizing: border-box;
             text-align: center;
@@ -23,6 +24,7 @@
             font-family: Arial;
             font-family: 'Staatliches', cursive;
             text-align: center;
+            background-image: url("https://backgroundcheckall.com/wp-content/uploads/2017/12/light-grey-gradient-background-5.jpg");
         }
 
         .header {
@@ -44,7 +46,7 @@
             /* IE10 */
             flex-wrap: wrap;
             padding: 0 4px;
-            margin-left: 400px;
+            margin-left: 28%;
         }
 
         /* Create four equal columns that sits next to each other */
@@ -62,6 +64,7 @@
             margin-top: 8px;
             vertical-align: middle;
         }
+
 
         /* Responsive layout - makes a two column-layout instead of four columns */
         @media screen and (max-width: 800px) {
@@ -112,21 +115,24 @@
 
         <!-- Header -->
         <div class="header">
-            <h3>Welcome to Social, which city would you like to see activities for??</h3>
+            <h1>Welcome to Social, choose your city!</h1>
         </div>
 
         <!-- Photo Grid -->
         <div class="row">
+        
             <div class="column" id="grid">
-                <a class="city" id="vegas"><img src="https://imagesvc.timeincapp.com/v3/mm/image?url=https%3A%2F%2Fcdn-image.travelandleisure.com%2Fsites%2Fdefault%2Ffiles%2Fstyles%2F1600x1000%2Fpublic%2F1507040587%2Flas-vegas-strip-sunset-LVLIGHTS1017.jpg%3Fitok%3DOcgvYZpR&w=1000&c=sc&poi=face&q=70" id="vegas" style="width:100%"></a>
-                <a class="city" id="la"><img src="https://i.imgur.com/DJSzJKZ.jpg" id="la" style="width:100%"></a>
-                <a class="city" id="nyc"><img src="https://cdn.vox-cdn.com/thumbor/P1HcSKoyFYwBzp5z1NwJOYNBZuQ=/0x0:2000x1333/1200x900/filters:focal(840x507:1160x827)/cdn.vox-cdn.com/uploads/chorus_image/image/55554461/181219_16_51_00_5DSR0937.1538403655.jpg" id="nyc" style="width:100%"></a>
+                <a class="city" title="Las Vegas" id="vegas"><img src="https://media-cdn.tripadvisor.com/media/photo-s/0d/90/b1/d5/las-vegas-welcome-sign.jpg" id="vegas" style="width:100%"></a>
+                <a class="city" title="Los Angeles" id="la"><img src="https://cheapflights.wpengine.com/wp-content/uploads/2017/09/52-super-cool-things-to-do-in-los-angeles-29.jpg" id="la" style="width:100%"></a>
+                <a class="city" title="New York City" id="nyc"><img src="https://assets.atlasobscura.com/media/W1siZiIsInVwbG9hZHMvcGxhY2VfaW1hZ2VzLzczZjJmODRlMmUyYTRjNDAzNF8zNjk4MDQxOTU0XzI0OGY3OWMwZmZfYi5qcGciXSxbInAiLCJ0aHVtYiIsIngzOTA-Il0sWyJwIiwiY29udmVydCIsIi1xdWFsaXR5IDgxIC1hdXRvLW9yaWVudCJdXQ" id="nyc" style="width:100%"></a>
             </div>
             <div class="column" id="grid">
-                <a class="city" id="portland"><img src='http://intotrips.corecommerce.com/images/products/1799.jpg' id="portland" style="width:100%"></a>
-                <a class="city" id="colorado"><img src="https://www.coloradoavidgolfer.com/wp-content/uploads/2018/09/marroon_bells_620x372_colorado_mountains.jpg" id="colorado" style="width:100%"></a>
-                <a class="city" id="seattle"><img src="http://tim-hoskin.com/wp-content/uploads/2018/08/Seattle.jpg" id="seattle" style="width:100%"></a>
+                <a class="city" title="Portland" id="portland"><img src='http://intotrips.corecommerce.com/images/products/1799.jpg' id="portland" style="width:100%"></a>
+                <a class="city" title="Denver" id="colorado"><img src="https://assets.simpleviewcms.com/simpleview/image/upload/c_fill,h_645,q_50,w_1024/v1/clients/denver/denver_skyline_sunrise_74e8feaa_b49a_4b25_9720_c835907530a9_ca5bc80d-6503-4f77-8220-5520ee2bdac2.jpg" id="colorado" style="width:100%"></a>
+                <a class="city" title="Seattle" id="seattle"><img src="http://tim-hoskin.com/wp-content/uploads/2018/08/Seattle.jpg" id="seattle" style="width:100%"></a>
             </div>
+        
+
             <script>
             $(".city").click(function () {
                 var id = $(this).attr("id");
