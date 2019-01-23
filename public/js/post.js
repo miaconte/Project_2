@@ -1,7 +1,7 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function() {
   
-  $("#postAct").on("click", function(event) {
+  $(".postAct").on("click", function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
     console.log("hit");
