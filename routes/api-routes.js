@@ -121,10 +121,10 @@ module.exports = function(app) {
       event_city: req.body.city,
       event_link: req.body.link,
       event_category: req.body.category,
-      post_id: req.body.post_id
+      post_id: req.body.id
     }, {
       where: {
-        post_id: req.params.postid
+        post_id: req.body.id
       }
     }).then(function(dbPosts) {
       res.json(dbPosts);

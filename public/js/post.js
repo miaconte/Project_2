@@ -5,7 +5,6 @@ $(function() {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
     console.log("hit");
-
     var newPost = {
       eventName: $("#event_name").val().trim(),
       link: $("#actLink").val().trim(),
@@ -21,10 +20,14 @@ $(function() {
     }).then(
       function(data) {
         console.log(data);
-        alert("Your post was successly added! Your post id # is " + data.id)
+        $("#postIDHere").text(data.id);
+
         console.log("created new activity");
         // Reload the page to get the updated list
-        window.location.href = "/";
+        $('#idNumberArea').show();
+              var timer = setTimeout(function() {
+                window.location='/home'
+            }, 10000);
        
       }
     );

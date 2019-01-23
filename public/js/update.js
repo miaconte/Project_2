@@ -21,11 +21,12 @@ $(function() {
         contentType: "application/json",
       }).then(
         function(data) {
-          console.log(data);
-          alert("Your update was successly added! Your post id # is the same as before - " + data.id)
           console.log("created new activity");
           // Reload the page to get the updated list
-          window.location.href = "/";
+          $('#forId2').show();
+                var timer = setTimeout(function() {
+                  window.location='/home'
+              }, 10000);
          
         }
       );
