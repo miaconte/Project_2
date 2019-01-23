@@ -96,9 +96,9 @@ module.exports = function(app) {
     // Update takes in an object describing the properties we want to update, and
     // we use where to describe which objects we want to update
     db.activities.update({
-      event_name: req.body.eventName,
+      event_name: req.body.event_name,
       event_city: req.body.city,
-      event_link: req.body.link,
+      event_link: req.body.actLink,
       event_category: req.body.category,
       post_id: req.body.post_id
     }, {
