@@ -27,7 +27,7 @@ $(function() {
         $('#idNumberArea').show();
               var timer = setTimeout(function() {
                 window.location='/home'
-            }, 10000);
+            }, 5000);
        
       }
     );
